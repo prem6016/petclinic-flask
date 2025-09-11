@@ -1,6 +1,7 @@
 pipeline {
     agent any
     environment {
+        githubrepo = "https://github.com/prem6016/petclinic-flask.git"
         DOCKER_IMAGE = "prem6016/pet-clinic-flask:latest"
         REMOTE_USER = "ubuntu"
         REMOTE_HOST = "3.92.1.72"
@@ -13,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/prem6016/petclinic-flask.git'
+                git branch: 'main', url: "${githubrepo}"
             }
         }
 
